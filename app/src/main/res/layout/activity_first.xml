@@ -1,0 +1,95 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_green"
+
+    >
+
+    <ImageView
+        android:id="@+id/hang"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/cw1" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/sg"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/img_play" />
+    </RelativeLayout>
+
+    <!-- <Button
+         android:layout_marginLeft="12dp"
+         android:layout_marginTop="10dp"
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:text="@string/about_us"
+
+         />
+     <Button
+         android:layout_marginTop="10dp"
+         android:layout_marginLeft="237dp"
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:text="@string/help"
+         />
+     <LinearLayout
+
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical">
+         <Button
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:text="@string/start_game"
+             android:layout_marginLeft="100dp"
+             android:layout_marginTop="100dp"
+             android:id="@+id/sg"
+
+             />
+         <Button
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:text="@string/high_score"
+             android:layout_marginLeft="100dp"
+             android:layout_marginTop="10dp"
+             android:id="@+id/hs"
+             />
+         <Button
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_marginLeft="80dp"
+             android:layout_marginTop="10dp"
+             android:text="@string/sound_settings"
+             android:id="@+id/ss"
+             />
+         <Button
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_marginLeft="100dp"
+             android:layout_marginTop="10dp"
+             android:text="@string/exit_game"
+             android:id="@+id/eg"
+             />
+
+     </LinearLayout>-->
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_menu" />
+
+
+
+
+</FrameLayout>
