@@ -3,14 +3,12 @@ package com.trymash.Activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Point;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Display;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
@@ -30,9 +28,9 @@ import java.util.Random;
 
 public class MainActivity extends Activity {
 
-    int ran = 0;
+    private int ran = 0;
     public static int fetch = 0;
-    public RelativeLayout rlGameLayout = null;
+    private RelativeLayout rlGameLayout = null;
     public static String selected = null;
     public static ArrayList selectedFruitArr = new ArrayList();
     public static HashMap fruitsMap = new HashMap();
@@ -40,7 +38,6 @@ public class MainActivity extends Activity {
     public static ImageView chImage1 = null;
     public static ImageView chImage2 = null;
     public static ImageView chImage3 = null;
-    public static ImageView chImage4 = null;
     public static ImageView buciv = null;
     public static ImageView aiv = null;
     public static TextView tv = null;
@@ -50,10 +47,9 @@ public class MainActivity extends Activity {
     public static int height = 0;
     public static int mcount = 0;
     public static int level = 2;
-    //static int score=0;
     public static int a = 0;
     public static MainActivity act = null;
-    public MediaPlayer bgsong = null;
+    private MediaPlayer bgsong = null;
     public static MediaPlayer ssong = null;
     public static MediaPlayer csong = null;
     public static CircularProgressBar cpbProgress = null;
@@ -63,14 +59,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //change here....
-        //change from studio...
-        width = getWidth(getBaseContext());
-        height = getHeight(getBaseContext());
-        if (sound) {
-            bgsong = MediaPlayer.create(MainActivity.this, R.raw.bgsound);
-            bgsong.start();
-        }
         act = this;
         rlGameLayout = (RelativeLayout) findViewById(R.id.rlGameLayout);
         cpbProgress = (CircularProgressBar) findViewById(R.id.cpProgress);
@@ -79,6 +67,23 @@ public class MainActivity extends Activity {
         aiv = (ImageView) findViewById(R.id.aiv);
         tv = (TextView) findViewById(R.id.tv);
         tvTimer = (TextView) findViewById(R.id.tvTimer);
+        width = getWidth(getBaseContext());
+        height = getHeight(getBaseContext());
+
+        //set ITEMS to fruit map
+        fruitsMap.put(Constant.APPLE, R.drawable.apple);
+        fruitsMap.put(Constant.ORANGE, R.drawable.orange);
+        fruitsMap.put(Constant.STRAWBERRY, R.drawable.strawberry);
+        fruitsMap.put(Constant.MANGO, R.drawable.shalu);
+        fruitsMap.put(Constant.GRAPES, R.drawable.grapes);
+        fruitsMap.put(Constant.PEAR, R.drawable.pear);
+        fruitsMap.put(Constant.LICHEE, R.drawable.lichee);
+        fruitsMap.put(Constant.ANAR, R.drawable.anar);
+
+        if (sound) {
+            bgsong = MediaPlayer.create(MainActivity.this, R.raw.bgsound);
+            bgsong.start();
+        }
         tvTimer.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -98,14 +103,6 @@ public class MainActivity extends Activity {
                 }
             }
         });
-        fruitsMap.put(Constant.APPLE, R.drawable.apple);
-        fruitsMap.put(Constant.ORANGE, R.drawable.orange);
-        fruitsMap.put(Constant.STRAWBERRY, R.drawable.strawberry);
-        fruitsMap.put(Constant.MANGO, R.drawable.shalu);
-        fruitsMap.put(Constant.GRAPES, R.drawable.grapes);
-        fruitsMap.put(Constant.PEAR, R.drawable.pear);
-        fruitsMap.put(Constant.LICHEE, R.drawable.lichee);
-        fruitsMap.put(Constant.ANAR, R.drawable.anar);
         new Thread() {
             @Override
             public void run() {
@@ -117,7 +114,6 @@ public class MainActivity extends Activity {
                             public void run() {
                                 switch (ran) {
                                     case 0: {
-                                        //hellooooooooo.............
                                         rlGameLayout.addView(new Fruits.Apple(getApplicationContext()));
                                         break;
                                     }
@@ -169,7 +165,6 @@ public class MainActivity extends Activity {
     @SuppressLint("NewApi")
     public static int getWidth(Context mContext) {
         int width = 0;
-
         WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         if (Build.VERSION.SDK_INT > 12) {
@@ -178,7 +173,6 @@ public class MainActivity extends Activity {
             width = size.x;
         } else {
             width = display.getWidth();  // Deprecated
-
         }
         return width;
     }

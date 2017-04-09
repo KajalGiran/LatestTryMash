@@ -24,6 +24,7 @@ package com.trymash.Utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.util.Log;
@@ -47,9 +48,6 @@ import java.util.Random;
 class Common extends ImageView {
     Handler handle = null;
     Context cont = null;
-
-    int num = 0;
-
     public Common(Context context) {
         super(context);
         cont = context;
@@ -139,8 +137,8 @@ class Common extends ImageView {
                         for (int i = 0; i < MainActivity.selectedFruitArr.size(); i++) {
 
                             ImageView chImage = (ImageView) MainActivity.selectedFruitArr.get(i);
-                            chImage.setImageResource(Integer.parseInt(MainActivity.fruitsMap.get(MainActivity.selected).toString()));
-
+                            //chImage.setImageResource(Integer.parseInt(MainActivity.fruitsMap.get(MainActivity.selected).toString()));
+                                chImage.setColorFilter(null);
                         }
                         MainActivity.selectedFruitArr.removeAll(MainActivity.selectedFruitArr);
                         MainActivity.selected = img.getTag().toString();
@@ -224,7 +222,6 @@ class Common extends ImageView {
                         @Override
                         public void onAnimationStart(Animation arg0) {
                             // TODO Auto-generated method stub
-
                             MainActivity.aiv.setImageResource(R.drawable.finalarrow);
                         }
 
@@ -283,30 +280,38 @@ class Common extends ImageView {
                 }
 
                 if (img.getTag() == Constant.APPLE) {
-                    setImageResource(R.drawable.smallappbck);
+                    //setImageResource(R.drawable.smallappbck);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
 
                 if (img.getTag() == Constant.ORANGE) {
-                    setImageResource(R.drawable.orangebackground);
+                    //setImageResource(R.drawable.orangebackground);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
                 if (img.getTag() == Constant.STRAWBERRY) {
-                    setImageResource(R.drawable.strawberrybackground);
+                    //setImageResource(R.drawable.strawberrybackground);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
                 if (img.getTag() == Constant.GRAPES) {
-                    setImageResource(R.drawable.grapesbackground);
+                    //setImageResource(R.drawable.grapesbackground);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
                 if (img.getTag() == Constant.MANGO) {
-                    setImageResource(R.drawable.mangobackground);
+                    //setImageResource(R.drawable.mangobackground);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
                 if (img.getTag() == Constant.PEAR) {
-                    setImageResource(R.drawable.pearback);
+                    //setImageResource(R.drawable.pearback);
                     //MainActivity.iv.setImageResource(R.drawable.apple);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
                 if (img.getTag() == Constant.LICHEE) {
-                    setImageResource(R.drawable.licheeback);
+                    //setImageResource(R.drawable.licheeback);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
                 if (img.getTag() == Constant.ANAR) {
-                    setImageResource(R.drawable.anarback);
+                    //setImageResource(R.drawable.anarback);
+                    setColorFilter(Color.parseColor("#ADD8E6"));
                 }
             }
         });

@@ -23,12 +23,21 @@ public class Splash extends Activity {
     private ImageView iv5;
     private ImageView iv6;
     private ImageView iv7;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         song = MediaPlayer.create(Splash.this, R.raw.ssound);
         song.start();
+        iv1 = (ImageView) findViewById(R.id.iv1);
+        iv2 = (ImageView) findViewById(R.id.iv2);
+        iv3 = (ImageView) findViewById(R.id.iv3);
+        iv4 = (ImageView) findViewById(R.id.iv4);
+        iv5 = (ImageView) findViewById(R.id.iv5);
+        iv6 = (ImageView) findViewById(R.id.iv6);
+        iv7 = (ImageView) findViewById(R.id.iv7);
+        //handle delay by THREAD
         Thread stimer = new Thread() {
             @Override
             public void run() {
@@ -43,87 +52,43 @@ public class Splash extends Activity {
             }
         };
         stimer.start();
+        iv1.setBackgroundResource(R.drawable.blackt);
+        iv2.setBackgroundResource(R.drawable.blackr);
+        iv3.setBackgroundResource(R.drawable.blacky);
+        Animation a = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.show);
+        iv1.startAnimation(a);
+        iv2.startAnimation(a);
+        iv3.startAnimation(a);
+        a.setAnimationListener(new AnimationListener() {
 
-        iv1 = (ImageView) findViewById(R.id.iv1);
-        iv2 = (ImageView) findViewById(R.id.iv2);
-        iv3 = (ImageView) findViewById(R.id.iv3);
-        iv4 = (ImageView) findViewById(R.id.iv4);
-        iv5 = (ImageView) findViewById(R.id.iv5);
-        iv6 = (ImageView) findViewById(R.id.iv6);
-        iv7 = (ImageView) findViewById(R.id.iv7);
-                iv1.setBackgroundResource(R.drawable.blackt);
-                iv2.setBackgroundResource(R.drawable.blackr);
-                iv3.setBackgroundResource(R.drawable.blacky);
-                Animation a = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.show);
-                iv1.startAnimation(a);
-                iv2.startAnimation(a);
-                iv3.startAnimation(a);
-                a.setAnimationListener(new AnimationListener() {
+                                   @Override
+                                   public void onAnimationStart(Animation arg0) {
+                                       // TODO Auto-generated method stub
 
-                                           @Override
-                                           public void onAnimationStart(Animation arg0) {
-                                               // TODO Auto-generated method stub
+                                   }
 
-                                           }
+                                   @Override
+                                   public void onAnimationRepeat(Animation arg0) {
+                                       // TODO Auto-generated method stub
 
-                                           @Override
-                                           public void onAnimationRepeat(Animation arg0) {
-                                               // TODO Auto-generated method stub
+                                   }
 
-                                           }
-
-                                           @Override
-                                           public void onAnimationEnd(Animation arg0) {
-                                               // TODO Auto-generated method stub
-						/*iv1.setBackground(null);
-						iv2.setBackground(null);
-						iv3.setBackground(null);
-						iv1.setText("T");
-						iv2.setText("R");
-						iv3.setText("Y");*/
-                                               iv1.setBackgroundResource(R.drawable.blackt);
-                                               iv2.setBackgroundResource(R.drawable.blackr);
-                                               iv3.setBackgroundResource(R.drawable.blacky);
-
-                                               iv4.setBackgroundResource(R.drawable.blackm);
-                                               iv5.setBackgroundResource(R.drawable.blacka);
-                                               iv6.setBackgroundResource(R.drawable.blacks);
-                                               iv7.setBackgroundResource(R.drawable.blackh);
-                                               Animation a1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.show);
-                                               iv4.startAnimation(a1);
-                                               iv5.startAnimation(a1);
-                                               iv6.startAnimation(a1);
-                                               iv7.startAnimation(a1);
-                                               a1.setAnimationListener(new AnimationListener() {
-
-                                                   @Override
-                                                   public void onAnimationStart(Animation arg0) {
-                                                       // TODO Auto-generated method stub
-
-                                                   }
-
-                                                   @Override
-                                                   public void onAnimationRepeat(Animation arg0) {
-                                                       // TODO Auto-generated method stub
-
-                                                   }
-
-                                                   ////////////////////////
-                                                   @Override
-                                                   public void onAnimationEnd(Animation arg0) {
-                                                       // TODO Auto-generated method stub
-                                                       iv4.setBackgroundResource(R.drawable.blackm);
-                                                       iv5.setBackgroundResource(R.drawable.blacka);
-                                                       iv6.setBackgroundResource(R.drawable.blacks);
-                                                       iv7.setBackgroundResource(R.drawable.blackh);
-                                                   }
-                                                   ////////////////////////
-                                               });
-                                           }
-                                       }
-                );
-            }
-
+                                   @Override
+                                   public void onAnimationEnd(Animation arg0) {
+                                       // TODO Auto-generated method stub
+                                       iv4.setBackgroundResource(R.drawable.blackm);
+                                       iv5.setBackgroundResource(R.drawable.blacka);
+                                       iv6.setBackgroundResource(R.drawable.blacks);
+                                       iv7.setBackgroundResource(R.drawable.blackh);
+                                       Animation a1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.show);
+                                       iv4.startAnimation(a1);
+                                       iv5.startAnimation(a1);
+                                       iv6.startAnimation(a1);
+                                       iv7.startAnimation(a1);
+                                   }
+                               }
+        );
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
