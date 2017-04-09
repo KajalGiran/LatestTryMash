@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.trymash.R;
+import com.trymash.Utils.CircularProgressBar;
 import com.trymash.Utils.Constant;
 import com.trymash.Utils.Fruits;
 import com.trymash.Utils.Timer;
@@ -31,9 +32,7 @@ public class MainActivity extends Activity {
 
     int ran = 0;
     public static int fetch = 0;
-    RelativeLayout rl = null;
-    RelativeLayout rl1 = null;
-    RelativeLayout rl2 = null;
+    public RelativeLayout rlGameLayout = null;
     public static String selected = null;
     public static ArrayList selectedFruitArr = new ArrayList();
     public static HashMap fruitsMap = new HashMap();
@@ -45,33 +44,27 @@ public class MainActivity extends Activity {
     public static ImageView buciv = null;
     public static ImageView aiv = null;
     public static TextView tv = null;
-    public static TextView ttv = null;
+    public static TextView tvTimer = null;
     public static Boolean pause = false;
     public static int width = 0;
     public static int height = 0;
     public static int mcount = 0;
-    public static int level = 0;
+    public static int level = 2;
     //static int score=0;
     public static int a = 0;
     public static MainActivity act = null;
     public MediaPlayer bgsong = null;
     public static MediaPlayer ssong = null;
     public static MediaPlayer csong = null;
+    public static CircularProgressBar cpbProgress = null;
     static Boolean sound = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        rl = (RelativeLayout) findViewById(R.id.rl);
-        rl1 = (RelativeLayout) findViewById(R.id.rl1);
-        rl2 = (RelativeLayout) findViewById(R.id.rl2);
-        iv = (ImageView) findViewById(R.id.iv);
-        buciv = (ImageView) findViewById(R.id.buciv);
-        aiv = (ImageView) findViewById(R.id.aiv);
-        tv = (TextView) findViewById(R.id.tv);
-        ttv = (TextView) findViewById(R.id.ttv);
+        //change here....
+        //change from studio...
         width = getWidth(getBaseContext());
         height = getHeight(getBaseContext());
         if (sound) {
@@ -79,7 +72,14 @@ public class MainActivity extends Activity {
             bgsong.start();
         }
         act = this;
-        ttv.setOnClickListener(new OnClickListener() {
+        rlGameLayout = (RelativeLayout) findViewById(R.id.rlGameLayout);
+        cpbProgress = (CircularProgressBar) findViewById(R.id.cpProgress);
+        iv = (ImageView) findViewById(R.id.iv);
+        buciv = (ImageView) findViewById(R.id.buciv);
+        aiv = (ImageView) findViewById(R.id.aiv);
+        tv = (TextView) findViewById(R.id.tv);
+        tvTimer = (TextView) findViewById(R.id.tvTimer);
+        tvTimer.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
@@ -117,35 +117,36 @@ public class MainActivity extends Activity {
                             public void run() {
                                 switch (ran) {
                                     case 0: {
-                                        rl1.addView(new Fruits.Apple(getApplicationContext()));
+                                        //hellooooooooo.............
+                                        rlGameLayout.addView(new Fruits.Apple(getApplicationContext()));
                                         break;
                                     }
                                     case 1: {
-                                        rl1.addView(new Fruits.Orange(getApplicationContext()));
+                                        rlGameLayout.addView(new Fruits.Orange(getApplicationContext()));
                                         break;
                                     }
                                     case 2: {
-                                        rl1.addView(new Fruits.Strawberry(getApplicationContext()));
+                                        rlGameLayout.addView(new Fruits.Strawberry(getApplicationContext()));
                                         break;
                                     }
                                     case 3: {
-                                        rl1.addView(new Fruits.Grapes(getApplicationContext()));
+                                        rlGameLayout.addView(new Fruits.Grapes(getApplicationContext()));
                                         break;
                                     }
                                     case 4: {
-                                        rl1.addView(new Fruits.Mango(getApplicationContext()));
+                                        rlGameLayout.addView(new Fruits.Mango(getApplicationContext()));
                                         break;
                                     }
                                     case 5: {
-                                        rl1.addView(new Fruits.Pear(getApplicationContext()));
+                                        rlGameLayout.addView(new Fruits.Pear(getApplicationContext()));
                                         break;
                                     }
                                     case 6: {
-                                        rl1.addView(new Fruits.Lichee(getApplicationContext()));
+                                        rlGameLayout.addView(new Fruits.Lichee(getApplicationContext()));
                                         break;
                                     }
                                     case 7: {
-                                        rl1.addView(new Fruits.Anar(getApplicationContext()));
+                                        rlGameLayout.addView(new Fruits.Anar(getApplicationContext()));
                                         break;
                                     }
                                 }
@@ -198,38 +199,6 @@ public class MainActivity extends Activity {
         return height;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO Auto-generated method stub
-        int var = item.getItemId();
-
-        switch (var) {
-            case R.id.m1: {
-                Intent in = new Intent(getApplicationContext(), SoundSettingsActivity.class);
-                startActivity(in);
-                break;
-            }
-            case R.id.m2: {
-                Intent in2 = new Intent(getApplicationContext(), HelpActivity.class);
-                startActivity(in2);
-                break;
-            }
-            case R.id.m3: {
-                //Intent in=new Intent(getApplicationContext(), AboutUs.class);
-                //startActivity(in);
-                finish();
-                System.exit(0);
-                break;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
     @Override
     protected void onPause() {
         // TODO Auto-generated method stub

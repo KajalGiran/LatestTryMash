@@ -2,28 +2,30 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_green"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_green_new"
 
     >
 
-    <ImageView
-        android:id="@+id/hang"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/cw1" />
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/sg"
-            android:layout_width="92dp"
-            android:layout_height="92dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/img_play" />
-    </RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_try"
+            android:layout_weight="5.5"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/img_try" />
+        <ImageView
+            android:id="@+id/iv_mash"
+            android:layout_weight="4.5"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/img_mash" />
+
+    </LinearLayout>
 
     <!-- <Button
          android:layout_marginLeft="12dp"
@@ -87,9 +89,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_menu" />
+        android:src="@drawable/ic_circle"
+        app:fabSize="normal"
+        app:borderWidth="2dp"
+        />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/sg"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/img_play" />
+    </RelativeLayout>
 
 
 </FrameLayout>

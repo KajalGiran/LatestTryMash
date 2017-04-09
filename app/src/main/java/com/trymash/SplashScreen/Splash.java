@@ -15,21 +15,14 @@ import com.trymash.R;
 
 
 public class Splash extends Activity {
-    static MediaPlayer song = null;
-    static ImageView iv1 = null;
-    static ImageView iv2 = null;
-    static ImageView iv3 = null;
-    static ImageView iv4 = null;
-    static ImageView iv5 = null;
-    static ImageView iv6 = null;
-    static ImageView iv7 = null;
-    static ImageView wel = null;
-
-    //static ImageView iv1=null;
-    //static ImageView iv2=null;
-    //static ImageView iv3=null;
-    //static TextView show=null;
-    //static Boolean temp=false;
+    private MediaPlayer song;
+    private ImageView iv1;
+    private ImageView iv2;
+    private ImageView iv3;
+    private ImageView iv4;
+    private ImageView iv5;
+    private ImageView iv6;
+    private ImageView iv7;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,26 +51,6 @@ public class Splash extends Activity {
         iv5 = (ImageView) findViewById(R.id.iv5);
         iv6 = (ImageView) findViewById(R.id.iv6);
         iv7 = (ImageView) findViewById(R.id.iv7);
-        wel = (ImageView)findViewById(R.id.wel);
-                Animation wa = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.show);
-        wel.startAnimation(wa);
-        wa.setAnimationListener(new AnimationListener() {
-
-            @Override
-            public void onAnimationStart(Animation arg0) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation arg0) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation arg0) {
-                // TODO Auto-generated method stub
                 iv1.setBackgroundResource(R.drawable.blackt);
                 iv2.setBackgroundResource(R.drawable.blackr);
                 iv3.setBackgroundResource(R.drawable.blacky);
@@ -150,10 +123,7 @@ public class Splash extends Activity {
                                        }
                 );
             }
-        });
 
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

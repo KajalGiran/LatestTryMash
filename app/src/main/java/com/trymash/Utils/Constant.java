@@ -23,4 +23,6 @@ public class Constant {
     public static final String FIRST_LEVEL_COMPLETED="1st Level Completed";
     public static final String SECOND_LEVEL_COMPLETED="2nd Level Completed";
     public static final String ZERO="0";
+	public static final int TOTAL_GAME_TIME_IN_SECOND = 60;
+    public static final int DB_VERSION = 2;
 }

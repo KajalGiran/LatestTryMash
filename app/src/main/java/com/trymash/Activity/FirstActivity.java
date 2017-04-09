@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
@@ -19,31 +20,26 @@ import com.trymash.Utils.MyBounceInterpolator;
 
 
 public class FirstActivity extends Activity {
-    static Button sg=null;
-    private ImageView hang;
-    /* static Button hs=null;
-    static Button eg=null;
-    static Button ss=null;*/
+    private Button sg=null;
+    private Animation myAnimHang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-
         sg=(Button) findViewById(R.id.sg);
-        hang = (ImageView) findViewById(R.id.hang);
-        final Animation myAnimHang = AnimationUtils.loadAnimation(this, R.anim.hanging_effect);
-        hang.startAnimation(myAnimHang);
-        animateButton();
-        /*hs=(Button) findViewById(R.id.hs);
-        eg=(Button) findViewById(R.id.eg);
-        ss=(Button) findViewById(R.id.ss);
-*/
-        //here======================
+        ImageView imgTry = (ImageView) findViewById(R.id.iv_try);
+        ImageView imgMash = (ImageView) findViewById(R.id.iv_mash);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
-       // LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(60, 60);
-// existing height is ok as is, no need to edit it
 
+        myAnimHang = AnimationUtils.loadAnimation(this, R.anim.hanging_effect);
+        imgTry.startAnimation(myAnimHang);
+        imgMash.startAnimation(myAnimHang);
+        animateButton();
+        //create sub floating buttons
+        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+        FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(80,80);
+        itemBuilder.setLayoutParams(params);
+        itemBuilder.setBackgroundDrawable(getResources().getDrawable(R.drawable.ic_circle));
         ImageView item1 = new ImageView(this);
 
         item1.setImageResource(R.drawable.ic_help);
@@ -62,6 +58,7 @@ public class FirstActivity extends Activity {
         SubActionButton button1 = itemBuilder.setContentView(item1).build();
         SubActionButton button2 = itemBuilder.setContentView(item2).build();
         SubActionButton button3 = itemBuilder.setContentView(item3).build();
+
         //attach the sub buttons
         new FloatingActionMenu.Builder(this)
                 /*.setStartAngle(-45)
@@ -73,11 +70,6 @@ public class FirstActivity extends Activity {
                 .attachTo(fab)
                 .build();
 
-
-        //here======================
-
-
-
         sg.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -87,65 +79,26 @@ public class FirstActivity extends Activity {
                 startActivity(in2);
             }
         });
-        /*hs.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                Intent in=new Intent(FirstActivity.this, HighScoreActivity.class);
-                startActivity(in);
-            }
-        });*/
-       /* ss.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                Intent in1=new Intent(FirstActivity.this, SoundSettingsActivity.class);
-                startActivity(in1);
-            }
-        });
-        eg.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                System.exit(0);
-            }
-        });*/
     }
     private void animateButton() {
-        //********************-----add animation on button
-        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
-        //additional code**********
+        myAnimHang = AnimationUtils.loadAnimation(this, R.anim.bounce);
         double animationDuration = 2.00 * 1000;
-        myAnim.setDuration((long)animationDuration);
-        //*************
+        myAnimHang.setDuration((long)animationDuration);
         // Use bounce interpolator with amplitude 0.2 and frequency 20
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
-        myAnim.setInterpolator(interpolator);
-        sg.startAnimation(myAnim);
-
+        myAnimHang.setInterpolator(interpolator);
+        sg.startAnimation(myAnimHang);
         // Run button animation again after it finished
-        myAnim.setAnimationListener(new Animation.AnimationListener(){
+        myAnimHang.setAnimationListener(new Animation.AnimationListener(){
             @Override
             public void onAnimationStart(Animation arg0) {}
-
             @Override
             public void onAnimationRepeat(Animation arg0) {}
-
             @Override
             public void onAnimationEnd(Animation arg0) {
                 animateButton();
             }
         });
-        //********************-----add animation on button
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.first, menu);
-        return true;
     }
 
 }

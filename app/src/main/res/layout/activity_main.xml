@@ -1,27 +1,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sage42="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rl"
 
     >
-    <RelativeLayout
 
+    <RelativeLayout
+        android:id="@+id/rlBottomLayout"
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        tools:context=".MainActivity"
-        android:id="@+id/rl2"
-        android:background="#000000">
+        android:background="#000000"
+
+        tools:context=".MainActivity">
 
         <ImageView
 
-            android:layout_height="52dp"
-            android:layout_width="47dp"
-            android:padding="10dp"
-
             android:id="@+id/iv"
+            android:layout_width="47dp"
+            android:layout_height="52dp"
+
+            android:padding="10dp"
 
             />
 
@@ -29,38 +31,55 @@
             android:id="@+id/aiv"
             android:layout_width="300dp"
             android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            />
+            android:layout_alignParentRight="true" />
 
         <ImageView
             android:id="@+id/buciv"
-            android:layout_alignBaseline="@id/iv"
-            android:layout_alignParentEnd="true"
             android:layout_width="47dp"
             android:layout_height="52dp"
+            android:layout_alignBaseline="@id/iv"
+            android:layout_alignParentEnd="true"
             android:padding="10dp"
 
             />
 
     </RelativeLayout>
+
     <RelativeLayout
-        android:id="@+id/rl1"
+        android:id="@+id/rlGameLayout"
         android:layout_width="match_parent"
-        android:layout_above="@id/rl2"
+
         android:layout_height="fill_parent"
+        android:layout_above="@id/rlBottomLayout"
         android:background="@drawable/greenery11"
-        tools:context=".MainActivity" >
+        tools:context=".MainActivity">
+
+        <com.trymash.Utils.CircularProgressBar
+            android:id="@+id/cpProgress"
+            android:layout_width="@dimen/watch_width"
+            android:layout_height="@dimen/watch_width"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ntimer"
+            android:textColor="@color/alpha_black"
+            android:textSize="28sp"
+            sage42:bgColor="@android:color/white"
+            sage42:bgStrokeWidth="4dp"
+            sage42:diameter="@dimen/watch_width"
+            sage42:max="60"
+            sage42:progressColor="@color/alpha_green"
+            sage42:progressStrokeWidth="4dp"
+            sage42:showText="true" />
 
         <TextView
-            android:layout_height="68dp"
-            android:layout_width="60dp"
+            android:id="@+id/tvTimer"
+            android:layout_width="@dimen/watch_width"
+            android:layout_height="@dimen/watch_width"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:id="@+id/ttv"
-            android:paddingStart="20dp"
-            android:paddingTop="45dp"
             android:background="@drawable/ntimer"
-            android:text="200"></TextView>
+            android:text="200"
+            android:visibility="gone"></TextView>
 
         <TextView
             android:id="@+id/tv"
@@ -69,9 +88,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:paddingTop="10dp"
-            android:textSize="15dp"
             android:textColor="#ff00ff00"
-
+            android:textSize="15dp"
 
 
             />
