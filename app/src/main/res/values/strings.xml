@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Studio_TryMash</string>
+    <string name="app_name">TryMash</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -22,4 +22,6 @@
     <string name="exit_game">Exit Game</string>
     <string name="sound_on">On</string>
     <string name="sound_off">Off</string>
+    <string name="label_facebook">......<u>facebook</u>......</string>
+    <string name="facebook_app_id">258819137921919</string>
 </resources>

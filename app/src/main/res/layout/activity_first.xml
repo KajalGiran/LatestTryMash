@@ -1,8 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_green_new"
 
     >
@@ -14,15 +14,16 @@
 
         <ImageView
             android:id="@+id/iv_try"
-            android:layout_weight="5.5"
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:layout_weight="5.5"
             android:background="@drawable/img_try" />
+
         <ImageView
             android:id="@+id/iv_mash"
-            android:layout_weight="4.5"
             android:layout_width="match_parent"
             android:layout_height="120dp"
+            android:layout_weight="4.5"
             android:background="@drawable/img_mash" />
 
     </LinearLayout>
@@ -90,9 +91,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
         android:src="@drawable/ic_circle"
-        app:fabSize="normal"
         app:borderWidth="2dp"
-        />
+        app:fabSize="normal" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -100,10 +100,29 @@
 
         <Button
             android:id="@+id/sg"
-            android:layout_width="92dp"
-            android:layout_height="92dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:background="@drawable/img_play" />
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/img_play_text" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sg"
+            android:layout_centerInParent="true"
+            />
+        <!--<TextView
+            android:id="@+id/tv_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_below="@+id/sg"
+            android:layout_centerInParent="true"
+            android:textColor="#000000"
+            android:text="@string/label_facebook"
+            />-->
     </RelativeLayout>
 
 

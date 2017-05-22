@@ -1,23 +1,28 @@
 package com.trymash.model;
 
-import com.orm.SugarRecord;
-import com.orm.dsl.Table;
 
 /**
  * Created by desktop on 04-04-2017.
  */
-@Table(name= "scoreboard")
-public class ScoreBoard extends SugarRecord {
-    private int score;
-    private String time;
-
-    public ScoreBoard() {
+public class ScoreBoard {
+    int id;
+    int score;
+    String time;
+    public ScoreBoard(){
 
     }
-
     public ScoreBoard(int score, String time){
         this.score = score;
+
         this.time = time;
+    }
+
+    public int getid() {
+        return id;
+    }
+
+    public void setid(int id) {
+        this.id = id;
     }
 
     public String getTime() {

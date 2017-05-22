@@ -38,6 +38,7 @@ import android.widget.Toast;
 import com.trymash.Activity.MainActivity;
 import com.trymash.Activity.ScoreBoardActivity;
 import com.trymash.R;
+import com.trymash.helper.DatabaseHelper;
 import com.trymash.model.ScoreBoard;
 
 import java.text.DateFormat;
@@ -51,6 +52,15 @@ class Common extends ImageView {
     public Common(Context context) {
         super(context);
         cont = context;
+        //add animation
+        Animation myAnimHang = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+        startAnimation(myAnimHang);
+        //handle object distribution via x-axis
+        int r = new Random().nextInt(MainActivity.width - 50);
+        setY(0);
+        setX(r);
+
+        //handle object motion via y-axis
         handle = new Handler();
         new Thread() {
             @Override
@@ -263,13 +273,22 @@ class Common extends ImageView {
                                 t1.show();
                                 String dateTime = DateFormat.getDateTimeInstance().format(new Date());
                                 Log.d("TryMash","datetime :- "+dateTime);
-                                ScoreBoard scoreBoard = new ScoreBoard(MainActivity.a, DateFormat.getDateTimeInstance().format(new Date()));
-                                scoreBoard.save();
+                                DatabaseHelper db = new DatabaseHelper(getContext());
+                                Log.d("Insert: ", "Inserting ..");
+                                db.addScoreData(new ScoreBoard(201, dateTime));
+                                /*ScoreBoard scoreBoard = new ScoreBoard(MainActivity.a, DateFormat.getDateTimeInstance().format(new Date()));
+                                scoreBoard.save();*/
                                 //Intent nin = new Intent(cont, EndActivity.class);
                                 Intent nin = new Intent(cont, ScoreBoardActivity.class);
                                 nin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 nin.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 cont.startActivity(nin);
+                                Timer.shouldContinue = false;
+                                try {
+                                    new Timer().t.join();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                                 MainActivity.act.finish();
                             }
                             MainActivity.tv.setText(Constant.SCORE + MainActivity.a);
@@ -320,13 +339,9 @@ class Common extends ImageView {
 
 public class Fruits {
     public static class Apple extends Common {
-
         public Apple(Context context) {
             super(context);
             setImageResource(R.drawable.apple);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.APPLE);
             // TODO Auto-generated constructor stub
         }
@@ -337,9 +352,6 @@ public class Fruits {
         public Orange(Context context) {
             super(context);
             setImageResource(R.drawable.orange);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.ORANGE);
             // TODO Auto-generated constructor stub
         }
@@ -350,9 +362,6 @@ public class Fruits {
         public Strawberry(Context context) {
             super(context);
             setImageResource(R.drawable.strawberry);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.STRAWBERRY);
             // TODO Auto-generated constructor stub
         }
@@ -362,9 +371,6 @@ public class Fruits {
         public Grapes(Context context) {
             super(context);
             setImageResource(R.drawable.grapes);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.GRAPES);
             // TODO Auto-generated constructor stub
         }
@@ -375,9 +381,6 @@ public class Fruits {
         public Mango(Context context) {
             super(context);
             setImageResource(R.drawable.shalu);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.MANGO);
             // TODO Auto-generated constructor stub
         }
@@ -388,9 +391,6 @@ public class Fruits {
         public Anar(Context context) {
             super(context);
             setImageResource(R.drawable.anar);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.ANAR);
             // TODO Auto-generated constructor stub
         }
@@ -401,9 +401,6 @@ public class Fruits {
         public Lichee(Context context) {
             super(context);
             setImageResource(R.drawable.lichee);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.LICHEE);
             // TODO Auto-generated constructor stub
         }
@@ -414,9 +411,6 @@ public class Fruits {
         public Pear(Context context) {
             super(context);
             setImageResource(R.drawable.pear);
-            int r = new Random().nextInt(MainActivity.width - 50);
-            setY(0);
-            setX(r);
             setTag(Constant.PEAR);
             // TODO Auto-generated constructor stub
         }

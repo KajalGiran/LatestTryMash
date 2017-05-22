@@ -21,8 +21,11 @@ import com.trymash.Utils.CircularProgressBar;
 import com.trymash.Utils.Constant;
 import com.trymash.Utils.Fruits;
 import com.trymash.Utils.Timer;
+import com.trymash.model.ScoreBoard;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 

@@ -1,5 +1,6 @@
 package com.trymash.adapter;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +33,16 @@ public class ScoreBoardAdapter extends RecyclerView.Adapter<ScoreBoardAdapter.Cu
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         ScoreBoard scoreBoard = scoreBoards.get(position);
-        holder.tvScore.setText(scoreBoard.getScore());
+        if(0==position)
+        {
+            holder.tvScore.setTextColor(Color.RED);
+            holder.tvTime.setTextColor(Color.RED);
+        }
+        else {
+            holder.tvScore.setTextColor(Color.BLACK);
+            holder.tvTime.setTextColor(Color.BLACK);
+        }
+        holder.tvScore.setText("" + scoreBoard.getScore());
         holder.tvTime.setText(scoreBoard.getTime());
     }
 

@@ -15,14 +15,11 @@
         tools:context=".MainActivity">
 
         <ImageView
-
             android:id="@+id/iv"
             android:layout_width="47dp"
             android:layout_height="52dp"
             android:padding="10dp"
-
             />
-
         <ImageView
             android:id="@+id/aiv"
             android:layout_width="300dp"
@@ -30,7 +27,6 @@
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             />
-
         <ImageView
             android:id="@+id/buciv"
             android:layout_width="47dp"
@@ -38,7 +34,6 @@
             android:layout_alignBaseline="@id/iv"
             android:layout_alignParentEnd="true"
             android:padding="10dp" />
-
     </RelativeLayout>
 
     <RelativeLayout
