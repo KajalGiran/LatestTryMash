@@ -275,7 +275,7 @@ class Common extends ImageView {
                                 Log.d("TryMash","datetime :- "+dateTime);
                                 DatabaseHelper db = new DatabaseHelper(getContext());
                                 Log.d("Insert: ", "Inserting ..");
-                                db.addScoreData(new ScoreBoard(201, dateTime));
+                                db.addScoreData(new ScoreBoard(MainActivity.a, dateTime));
                                 /*ScoreBoard scoreBoard = new ScoreBoard(MainActivity.a, DateFormat.getDateTimeInstance().format(new Date()));
                                 scoreBoard.save();*/
                                 //Intent nin = new Intent(cont, EndActivity.class);
